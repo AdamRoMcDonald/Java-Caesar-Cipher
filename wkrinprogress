@@ -1,0 +1,144 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Driver{
+    public static void main(String[] args) throws IOException {
+        Scanner scanObj = new Scanner(System.in);
+        System.out.println("Welcome to the tool, choose function\n1. Encrypt\n2. Decrypt");
+        String userChoice = scanObj.nextLine();
+        MessageAndKeyObj MKPair = new MessageAndKeyObj();
+        MKPair.EnglishWordChecker("words.txt");
+        switch (userChoice){
+            case "1":
+                System.out.println("Please enter the message to encrypt: ");
+                MKPair.setMessage(scanObj.nextLine());
+                System.out.println("Please enter the desired key: ");
+                MKPair.setKey(scanObj.nextInt());
+                scanObj.nextLine();
+                MKPair.CaesarCipher(MKPair.getMessage(), MKPair.getKey());
+                break;
+
+
+
+            case "2":
+                System.out.println("Please enter the message to de-encrypt: ");
+                MKPair.setMessage(scanObj.nextLine());
+                System.out.println("Do u know key? Y/N: ");
+                if(scanObj.nextLine().equals("N")){
+                    for ( int i = 0 ; i <= 26 ; i++){
+                        if(MKPair.isEnglishWord(MKPair.CaesarCipher(MKPair.getMessage(), -i))){
+                        System.out.println("It appears that your message, "+MKPair.getMessage()+" turns into: "+MKPair.CaesarCipher(MKPair.getMessage(), -i));}
+
+
+                    }
+                    break;
+                }
+                System.out.println("Please enter the desired key: ");
+                MKPair.setKey(-scanObj.nextInt());
+                scanObj.nextLine();
+                MKPair.CaesarCipher(MKPair.getMessage(), MKPair.getKey());
+                break;
+
+            default:
+                System.out.println("That's not an option");
+                break;
+
+        }
+
+    }
+}
+
+class Encryption{
+    public Encryption(){
+        
+    } 
+}
+
+
+class MessageAndKeyObj{
+    String message;
+    int key;
+    private Set<String> dictionary;
+
+    public MessageAndKeyObj(){
+        this.message = message;
+        this.key = key;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
+    public void EnglishWordChecker(String dictionaryFilePath) throws IOException {
+        dictionary = loadDictionary(dictionaryFilePath);
+    }
+
+    public Set<String> loadDictionary(String dictionaryFilePath) throws IOException {
+        Set<String> dictionary = new HashSet<>();
+        BufferedReader reader = new BufferedReader(new FileReader(dictionaryFilePath));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            dictionary.add(line.trim().toLowerCase());
+        }
+        reader.close();
+        return dictionary;
+    }
+
+    public boolean isEnglishWord(String word) {
+        String lowercaseWord = word.toLowerCase();
+        return dictionary.contains(lowercaseWord);
+    }
+
+
+
+
+    public String CaesarCipher(String message, int key) throws UnsupportedEncodingException {
+        /**
+         * A Map is used to attack each letter of the alphabet to a number, the number being the key and the letter the object.
+         */
+
+
+
+        String[] test = message.split("");
+        StringBuilder sB = new StringBuilder();
+        for (String c : test) {
+            char a = c.charAt(0);
+            int ascii = (int)a+key;
+            char asciiToChar = (char) ascii;
+            sB.append(asciiToChar);
+
+        }
+
+        return sB.toString();
+
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
+
