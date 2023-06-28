@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Encryption{
     public Encryption(Scanner scanObj) throws UnsupportedEncodingException {
-        MessageAndKeyObj MKPair = new MessageAndKeyObj();
+        keyAndMessageObj MKPair = new keyAndMessageObj();
         System.out.println("Please enter the message to encrypt: ");
         MKPair.setMessage(scanObj.nextLine());
         System.out.println("Please enter the desired key: ");
