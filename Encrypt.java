@@ -2,18 +2,18 @@ import java.util.Scanner;
 
 /**
  * @author Adam McDonald
- * @version 0.1
- * Encryption Option.
+ * @version 0.2
+ * <p>Encryption class deals with the encryption choice by user. Gets key and message and sets them.</p>
  */
-public class Encrypt extends keyAndMessageObj{
-    public Encrypt(Scanner scanObj){
+
+public class Encryption{
+    public Encryption(Scanner scanObj) throws UnsupportedEncodingException {
+        MessageAndKeyObj MKPair = new MessageAndKeyObj();
         System.out.println("Please enter the message to encrypt: ");
-        setMessage(scanObj.nextLine());
+        MKPair.setMessage(scanObj.nextLine());
         System.out.println("Please enter the desired key: ");
-        setKey(scanObj.nextInt());
+        MKPair.setKey(scanObj.nextInt());
         scanObj.nextLine();
-        CaesarCipher CC = new CaesarCipher(getMessage(),getKey());
-
-
+        System.out.println("Your message encrypted to a key of "+MKPair.getKey()+" : "+MKPair.CaesarCipher(MKPair.getMessage(), MKPair.getKey()));
     }
 }
