@@ -16,7 +16,7 @@ public class Decrypt{
         MKPair.setMessage(scanObj.nextLine());
 
         /**
-         *If user does not know the key, this code iterates through all possible keys (26) and checks them using the dictionary.
+         *If user does not know the key, this code iterates through all possible keys (26) and checks them using the dictionary.2
          *@see The loadDictionary, isEnglishWord, and EnglishWordChecker methods in keyAndMessageObj class.
          */
         
