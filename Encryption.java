@@ -4,7 +4,7 @@ import java.io.IOException;
 /**
  * @author Adam McDonald
  * @version 0.2
- * <p>Encryption class deals with the encryption choice by user. Gets key and message and sets them.</p>
+ * <p>Encryption class deals with the encryption choice by user. Gets key and message and sets them. 2</p>
  */
 
 public class Encryption{
