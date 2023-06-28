@@ -16,7 +16,7 @@ public class keyAndMessageObj{
     String message;
     int key;
     private Set<String> dictionary;
-    public MessageAndKeyObj(){
+    public keyAndMessageObj(){
         this.message = message;
         this.key = key;
     }
