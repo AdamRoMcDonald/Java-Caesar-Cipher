@@ -10,7 +10,7 @@ import java.util.Set;
  * @author Adam McDonald
  * @version 0.2
  * <p>This class creates a new object which holds a string message (from user input) and numerical key from the same source.
- * It also has the actual method for decoding or encoding a message with the Caesar cipher.</p>
+ * It also has the actual method for decoding or encoding a message with the Caesar cipher.2</p>
  */
 public class keyAndMessageObj{
     String message;
