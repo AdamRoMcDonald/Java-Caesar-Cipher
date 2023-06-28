@@ -1,43 +1,33 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+
 
 /**
  * @author Adam McDonald
- * @version 0.1
- * <p> The Driver class runs everything and checks if the user wishes to continue or exit after each cycle.
- *
- * </p>
+ * @version 0.2
+ * <p>Driver class acts as an introductory UI.</p>
  */
 
-
 public class Driver{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanObj = new Scanner(System.in);
-        keyAndMessageObj KAMO = new keyAndMessageObj();
-        boolean yesNo = true;
-        do {KAMO.welcome(scanObj);
-            System.out.println("Would you like to continue or exit: (Y/N): ");
-            String contChoice = scanObj.nextLine();
-            switch (contChoice){
-                case "Y":
-                    yesNo = true;
-                    break;
-                case "N":
-                    yesNo = false;
-                    break;
-                default:
-                    System.err.println("No an option, please enter either Y or N.");
-                    break;
+        System.out.println("Welcome to the tool, choose function\n1. Encrypt\n2. Decrypt");
+        String userChoice = scanObj.nextLine();
+
+        switch (userChoice) {
+            case "1" -> {
+                Encryption en = new Encryption(scanObj);
             }
-
-        }while(yesNo);
-        System.out.println("Exiting System, have a good day");
-        /**
-         * I do not know why I put the following line here.
-         */
-        String contChoice = scanObj.nextLine();
-        System.exit(1);
-
-
+            case "2" -> {
+                Decrypt de = new Decrypt(scanObj);
+            }
+            default -> System.out.println("That's not an option");
+        }
 
     }
 }
