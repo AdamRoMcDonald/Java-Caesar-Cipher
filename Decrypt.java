@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 /**
  * @author Adam McDonald
