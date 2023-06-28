@@ -5,7 +5,7 @@ To run in command prompt:
 
 cd C:/Users/(your username)/Downloads
 
-javac keyAndMessageObject.java Encrypt.java Decrypt.java CaesarCipher.java Driver.java
+javac Encryption.java Decrypt.java keyAndMessageObj.java Driver.java
 
 java Driver
 
