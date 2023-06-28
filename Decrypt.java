@@ -9,7 +9,7 @@ public class Decrypt{
     public Decrypt(Scanner scanObj) throws IOException {
 
 
-        MessageAndKeyObj MKPair = new MessageAndKeyObj();
+        keyAndMessageObj MKPair = new keyAndMessageObj();
         MKPair.EnglishWordChecker("words.txt");
         System.out.println("Please enter the message to de-encrypt: ");
         MKPair.setMessage(scanObj.nextLine());
