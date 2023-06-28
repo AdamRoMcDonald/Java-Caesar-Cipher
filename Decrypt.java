@@ -5,7 +5,7 @@ import java.util.Scanner;
  * @version 0.2
  * <p>Decryption class deals with encryption choice by user. Gets key and message and sets them.</p>
  */
-class Decrypt{
+public class Decrypt{
     public Decrypt(Scanner scanObj) throws IOException {
 
 
