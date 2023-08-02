@@ -13,7 +13,7 @@ import java.util.Set;
  * <p>Driver class acts as an introductory UI.</p>
  */
 
-class Driver {
+public class Driver {
     public static void main(String[] args) throws IOException {
         Scanner scanObj = new Scanner(System.in);
         String restart = "C";
