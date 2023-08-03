@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 
 public class Encryption{
     public Encryption(Scanner scanObj) throws UnsupportedEncodingException {
-        keyAndMessageObj MKPair = new keyAndMessageObj();
+        KeyAndMessageObj MKPair = new KeyAndMessageObj();
         System.out.println("Please enter the message to encrypt: ");
         MKPair.setMessage(scanObj.nextLine());
         System.out.println("Please enter the desired key: ");
