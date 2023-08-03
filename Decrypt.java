@@ -12,29 +12,59 @@ public class Decrypt{
 
 
         keyAndMessageObj MKPair = new keyAndMessageObj();
-        MKPair.EnglishWordChecker("words.txt");
+        MKPair.EnglishWordChecker("words_alpha.txt");
         System.out.println("Please enter the message to de-encrypt: ");
-        MKPair.setMessage(scanObj.nextLine());
+        String mess = scanObj.nextLine();
+
+        char someChar = ' ';
+        int count = 0;
+        for (int i = 0; i < mess.length(); i++) {
+            if (mess.charAt(i) == someChar) {
+                count++;
+            }
+        }
+        MKPair.setMessage(mess);
 
         /**
          *If user does not know the key, this code iterates through all possible keys (26) and checks them using the dictionary.2
          *@see The loadDictionary, isEnglishWord, and EnglishWordChecker methods in keyAndMessageObj class.
          */
-        
+
         boolean idk = true;
         idk = true;
         while(idk) {
-            System.out.println("Do you know the key? Y/N: ");
+            System.out.println("Do u know key? Y/N: ");
             String knowKeyAnswer = scanObj.nextLine();
             switch (knowKeyAnswer) {
                 case "N" -> {
-                    for (int i = 0; i <= 26; i++) {
-                        if (MKPair.isEnglishWord(MKPair.CaesarCipher(MKPair.getMessage(), -i))) {
-                            System.out.println("It appears that your message, " + MKPair.getMessage() + " turns into: " + MKPair.CaesarCipher(MKPair.getMessage(), -i));
-                            idk = false;
+                    idk = false;
+                    if (count > 0) {
+                        String[] seperatedWords = MKPair.getMessage().split(" ");
+                        for (String c : seperatedWords) {
+
+                            MKPair.setMessage(c);
+                            for (int i = 0; i <= 26; i++) {
+                                if (MKPair.isEnglishWord(MKPair.CaesarCipher(MKPair.getMessage(), -i))) {
+                                    System.out.println("It appears that your message, " + c + " turns into: " + MKPair.CaesarCipher(MKPair.getMessage(), -i));
+                                }
+
+                            }
+
+                        }
+                        break;
+                    }
+
+
+
+                        for (int i = 0; i <= 26; i++) {
+                            if (MKPair.isEnglishWord(MKPair.CaesarCipher(MKPair.getMessage(), -i))) {
+                                System.out.println("It appears that your message, " + MKPair.getMessage() + " turns into: " + MKPair.CaesarCipher(MKPair.getMessage(), -i));
+
+                            }
+
                         }
                     }
-                }
+
                 case "Y" -> {
                     System.out.println("Please enter the desired key: ");
                     MKPair.setKey(-scanObj.nextInt());
@@ -53,6 +83,6 @@ public class Decrypt{
 
             }
         }
-        
+
     }
 }
