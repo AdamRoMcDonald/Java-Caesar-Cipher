@@ -12,11 +12,11 @@ import java.util.Set;
  * <p>This class creates a new object which holds a string message (from user input) and numerical key from the same source.
  * It also has the actual method for decoding or encoding a message with the Caesar cipher.2</p>
  */
-public class keyAndMessageObj{
+public class KeyAndMessageObj{
     String message;
     int key;
     private Set<String> dictionary;
-    public keyAndMessageObj(){
+    public KeyAndMessageObj(){
         this.message = message;
         this.key = key;
     }
@@ -65,6 +65,8 @@ public class keyAndMessageObj{
         return dictionary;
     }
 
+
+
     /**
      * public boolean isEnglishWord very simply checks if the given message (from user) is present in the dictionary Set and would thus be an English word.
      * @param word Represents the user message.
@@ -72,8 +74,18 @@ public class keyAndMessageObj{
      */
     public boolean isEnglishWord(String word) {
         String lowercaseWord = word.toLowerCase();
-        return dictionary.contains(lowercaseWord);
+
+        for (String dictWord : dictionary) {
+            if (dictWord.equals(lowercaseWord)) {
+                return true;
+            }
+        }
+
+        return false;
     }
+
+
+
 
 
     /**
@@ -82,22 +94,26 @@ public class keyAndMessageObj{
      * @param key
      * @return
      * @throws UnsupportedEncodingException
-     * <p>Splits the user message into an array of single letter strings, changes each element in the array into the corresponding ASCII number,
-     * adds the key to said number, turns each individual element back into the new corresponding ASCII character, and then reconstructs the word in a StringBuilder object.
+     * <p> Sets all to lower case, shifts each letter by key.
+     * 
      */
 
 
     public String CaesarCipher(String message, int key) throws UnsupportedEncodingException {
-        String[] test = message.split("");
         StringBuilder sB = new StringBuilder();
-        for (String c : test) {
-            char a = c.charAt(0);
-            int ascii = (int)a+key;
-            char asciiToChar = (char) ascii;
-            sB.append(asciiToChar);
-        }
-        return sB.toString().replace("#"," ");
-        }
-    }
+        for (int i = 0; i < message.length(); i++) {
+            char originalChar = message.charAt(i);
 
+            if (Character.isLetter(originalChar)) {
+                char base = Character.isLowerCase(originalChar) ? 'a' : 'A';
+                int shifted = (originalChar - base + key) % 26;
+                char shiftedChar = (char) (base + (shifted + 26) % 26);
+                sB.append(shiftedChar);
+            } else {
+                sB.append(originalChar);
+            }
+        }
+        return sB.toString().replace("#", " ");
+    }
+}
 
