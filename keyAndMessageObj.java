@@ -96,7 +96,7 @@ public class keyAndMessageObj{
             char asciiToChar = (char) ascii;
             sB.append(asciiToChar);
         }
-        return sB.toString();
+        return sB.toString().replace("#"," ");
         }
     }
 
