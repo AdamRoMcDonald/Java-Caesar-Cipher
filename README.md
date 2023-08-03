@@ -3,8 +3,9 @@ Decrypt and Encrypt alphabetic messages using the Caesar cipher. The user inputs
 
 If you have a message but no key, you can still decrypt the message as well. 
 
-Firstly, download the words.txt file from:
+Firstly, download the words_alpha.txt file from:
 https://github.com/dwyl/english-words
+(make sure it's in your downloads)
 
 To run in command prompt: 
 
