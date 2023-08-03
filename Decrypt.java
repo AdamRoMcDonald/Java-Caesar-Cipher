@@ -11,7 +11,7 @@ public class Decrypt{
     public Decrypt(Scanner scanObj) throws IOException {
 
 
-        keyAndMessageObj MKPair = new keyAndMessageObj();
+        KeyAndMessageObj MKPair = new KeyAndMessageObj();
         MKPair.EnglishWordChecker("words_alpha.txt");
         System.out.println("Please enter the message to de-encrypt: ");
         String mess = scanObj.nextLine();
@@ -27,7 +27,7 @@ public class Decrypt{
 
         /**
          *If user does not know the key, this code iterates through all possible keys (26) and checks them using the dictionary.2
-         *@see The loadDictionary, isEnglishWord, and EnglishWordChecker methods in keyAndMessageObj class.
+         *@see The loadDictionary, isEnglishWord, and EnglishWordChecker methods in KeyAndMessageObj class.
          */
 
         boolean idk = true;
