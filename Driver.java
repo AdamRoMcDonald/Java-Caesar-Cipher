@@ -14,7 +14,7 @@ import java.util.Set;
  */
 
 public class Driver {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanObj = new Scanner(System.in);
         String restart = "C";
         while (restart.equals("C")) {
@@ -39,6 +39,9 @@ public class Driver {
 
 
         }
+        
         System.out.println("Thank you for using the Caesar Cipher Solver, have a nice day!");
+        Thread.sleep(20 * 100);
+        System.exit(1);
     }
 }
