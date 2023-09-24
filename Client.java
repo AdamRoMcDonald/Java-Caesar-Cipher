@@ -73,7 +73,7 @@ public class Client {
 
     public static void main(String args[])
     {
-        Client client = new Client("192.168.1.4", 12345);
+        Client client = new Client("", 12345);
     }
 }
 
